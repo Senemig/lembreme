@@ -7,10 +7,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   Lista: {
-    flex: 1,
-    width: '80%',
-    paddingVertical: 10,
-    borderBottomWidth: 5,
+    width: '100%',
+    paddingBottom: 20,
+    paddingHorizontal: 20,
   },
   Titulo: {
     fontSize: 30,

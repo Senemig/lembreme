@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   BotaoRemove: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: 'bold',
     backgroundColor: 'red',
     padding: 10,
