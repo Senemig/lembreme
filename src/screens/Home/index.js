@@ -25,7 +25,7 @@ export const Home = () => {
   async function fetchData() {
     const response = await AsyncStorage.getItem('@lembreme:tasks');
     const data = response ? JSON.parse(response) : {};
-    setData(data);
+    setData(data.sort((a, b) => b.priori - a.priori));
   }
   // console.log(data);
 
@@ -35,20 +35,19 @@ export const Home = () => {
 
     const data = previousData.filter(item => item.id !== id);
     AsyncStorage.setItem('@lembreme:tasks', JSON.stringify(data));
-    setData(data);
+    setData(data.sort((a, b) => b.priori - a.priori));
   }
 
   async function handleCheck(id) {
     const response = await AsyncStorage.getItem('@lembreme:tasks');
     const previousData = response ? JSON.parse(response) : [];
+    previousData.sort((a, b) => b.priori - a.priori);
 
     const index = previousData.map(item => item.id).indexOf(id);
     data[index].feito = !data[index].feito;
-    setData(data);
+    setData(data.sort((a, b) => b.priori - a.priori));
     setFeito(!feito);
-    console.log(hoje);
-    console.log(data[index].data);
-    console.log(moment(data[index].data).diff(hoje));
+    console.log(index);
   }
 
   useFocusEffect(

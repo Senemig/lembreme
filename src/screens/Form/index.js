@@ -14,6 +14,7 @@ const Form = () => {
   const navigation = useNavigation();
   const [titulo, setTitulo] = useState('');
   const [data, setData] = useState(new Date());
+  const [priori, setPriori] = useState(0);
   const [feito, setFeito] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -24,6 +25,7 @@ const Form = () => {
       id,
       titulo,
       data,
+      priori,
       feito,
     };
 
@@ -73,13 +75,18 @@ const Form = () => {
         />
         <BouncyCheckbox
           size={25}
-          fillColor="green"
+          fillColor="red"
           unfillColor="#FFFFFF"
-          text="Concluído"
-          iconStyle={{borderColor: 'green'}}
-          textStyle={{fontFamily: 'JosefinSans-Regular'}}
+          text="Prioridade!"
+          iconStyle={{borderColor: 'red'}}
+          textStyle={{
+            fontFamily: 'JosefinSans-Regular',
+            textDecorationLine: 'none',
+            fontWeight: 'bold',
+          }}
+          bounceFriction={5}
           style={styles.checkbox}
-          onPress={() => setFeito(!feito)}
+          onPress={() => setPriori(priori === 0 ? 1 : 0)}
         />
       </>
       <View

@@ -10,22 +10,22 @@ const Card = ({item, onRemove, onCheck}) => {
   const dateDiff = moment(item.data).diff(new Date(), 'days');
 
   return (
-    <View
-      key={item.id}
-      style={
-        dateDiff < 0
-          ? styles.Vencido
-          : item.feito
-          ? styles.CardFeito
-          : styles.Card
-      }>
+    <View key={item.id} style={styles.Container}>
       <Icon
         name="check"
         color="#FFFFFF"
         style={styles.BotaoCheck}
         onPress={onCheck}
       />
-      <View style={{alignItems: 'center'}}>
+      <View
+        style={[
+          dateDiff < 0
+            ? styles.Vencido
+            : item.feito
+            ? styles.CardFeito
+            : styles.Card,
+          item.priori ? styles.Prioridade : '',
+        ]}>
         <Text style={item.feito ? styles.txtFeito : styles.txtNaoFeito}>
           {item.titulo}
         </Text>
