@@ -62,12 +62,14 @@ const styles = StyleSheet.create({
     height: 80,
   },
   txtFeito: {
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
     textTransform: 'uppercase',
     textDecorationLine: 'line-through',
   },
   txtNaoFeito: {
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
     textTransform: 'uppercase',

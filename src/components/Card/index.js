@@ -29,7 +29,7 @@ const Card = ({item, onRemove, onCheck}) => {
         <Text style={item.feito ? styles.txtFeito : styles.txtNaoFeito}>
           {item.titulo}
         </Text>
-        <Text>{dataFormat}</Text>
+        <Text style={styles.txtNaoFeito}>{dataFormat}</Text>
       </View>
       <Icon
         name="delete"
