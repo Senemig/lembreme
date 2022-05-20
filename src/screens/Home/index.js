@@ -5,6 +5,7 @@ import {
   Button,
   TouchableOpacity,
   ScrollView,
+  Alert,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import React, {Component, useState, useEffect, useCallback} from 'react';
@@ -29,6 +30,19 @@ export const Home = () => {
     console.log('fetchData   ' + JSON.stringify(data));
   }
   // console.log(data);
+
+  const confirmDelete = id =>
+    Alert.alert('Removendo Tarefa!', 'Deseja mesmo remover essa tarefa?', [
+      {
+        text: 'Cancel',
+        onPress: () => {},
+        style: 'cancel',
+      },
+      {
+        text: 'OK',
+        onPress: () => handleRemove(id),
+      },
+    ]);
 
   async function handleRemove(id) {
     const response = await AsyncStorage.getItem('@lembreme:tasks');
@@ -75,7 +89,7 @@ export const Home = () => {
         renderItem={({item}) => (
           <Card
             item={item}
-            onRemove={() => handleRemove(item.id)}
+            onRemove={() => confirmDelete(item.id)}
             onCheck={() => handleCheck(item.id)}
           />
         )}
