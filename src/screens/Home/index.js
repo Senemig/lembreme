@@ -26,6 +26,7 @@ export const Home = () => {
     const response = await AsyncStorage.getItem('@lembreme:tasks');
     const data = response ? JSON.parse(response) : {};
     setData(data.sort((a, b) => b.priori - a.priori));
+    console.log('fetchData   ' + JSON.stringify(data));
   }
   // console.log(data);
 
@@ -36,6 +37,9 @@ export const Home = () => {
     const data = previousData.filter(item => item.id !== id);
     AsyncStorage.setItem('@lembreme:tasks', JSON.stringify(data));
     setData(data.sort((a, b) => b.priori - a.priori));
+    setFeito(!feito);
+    console.log(data);
+    console.log('handleRemove   ' + JSON.stringify(data));
   }
 
   async function handleCheck(id) {
@@ -45,9 +49,10 @@ export const Home = () => {
 
     const index = previousData.map(item => item.id).indexOf(id);
     data[index].feito = !data[index].feito;
+    AsyncStorage.setItem('@lembreme:tasks', JSON.stringify(data));
     setData(data.sort((a, b) => b.priori - a.priori));
     setFeito(!feito);
-    console.log(index);
+    console.log('handleCheck   ' + JSON.stringify(data));
   }
 
   useFocusEffect(
