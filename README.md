@@ -4,6 +4,10 @@
 
 
 ### Desenvolvido em 📱 [React Native](https://reactnative.dev)
+ - ⌚ [Moment JS](https://momentjs.com/)
+ - 📆 [DatePicker](https://github.com/henninghall/react-native-date-picker)
+ - ✅ [Bouncy Checkbox](https://github.com/WrathChaos/react-native-bouncy-checkbox)
+ - 📚 [Stack Navigator](https://reactnavigation.org/docs/stack-navigator/)
 
 
 <div align="center">
